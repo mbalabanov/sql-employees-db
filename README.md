@@ -4,14 +4,14 @@
 **How many rows do we have in each table in the employees database?**
 ```
 SELECT COUNT(*) as "Number of Rows"
-FROM employees;
+FROM `employees`;
 ```
 
 ### 2. Report:
 **How many employees with the first name "Mark" do we have in our company?**
 ```
 SELECT COUNT(*) as "First Name Mark"
-FROM employees
+FROM `employees`
 WHERE first_name = 'Mark'
 ```
 
@@ -19,14 +19,14 @@ WHERE first_name = 'Mark'
 ***How many employees with the first name "Eric" and the last name beginning with "A" do we have in our company?**
 ```
 SELECT COUNT(*) as 'Eric, last name starts with A'
-FROM employees WHERE first_name = 'Eric'
+FROM `employees` WHERE first_name = 'Eric'
 AND last_name LIKE 'A%'
 ```
 
 ### 4. Report:
 **How many employees do we have that are working for us since 1985 and who are they?**
 ```
-SELECT first_name, last_name
+SELECT first_name, last_name 
 FROM `employees`
 WHERE hire_date > '1985'
 ```
@@ -36,13 +36,20 @@ WHERE hire_date > '1985'
 ```
 SELECT first_name, last_name
 FROM `employees`
-WHERE hire_date > '19900000' AND hire_date < '19970000'
+WHERE hire_date > '19900000'
+AND hire_date < '19970000'
 ```
 
 ## 6. Report:
 **How many employees have salaries higher than EUR 70 000,00 and who are they?**
 ```
-
+SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary
+FROM employees
+INNER JOIN salaries
+ON salaries.emp_no = employees.emp_no
+WHERE salary > 70000
+ORDER BY `salaries`
+DESC;
 ```
 
 ## 7. Report:
