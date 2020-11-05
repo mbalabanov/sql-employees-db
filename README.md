@@ -16,7 +16,7 @@ WHERE first_name = 'Mark'
 ```
 
 ### 3. Report:
-***How many employees with the first name "Eric" and the last name beginning with "A" do we have in our company?**
+**How many employees with the first name "Eric" and the last name beginning with "A" do we have in our company?**
 ```
 SELECT DISTINCT COUNT(*) as 'Eric, last name starts with A'
 FROM `employees` WHERE first_name = 'Eric'
