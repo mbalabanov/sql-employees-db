@@ -63,13 +63,25 @@ ON res_dept.dept_no = res_dept_emp.dept_no
 INNER JOIN employees AS res_emp
 ON res_emp.emp_no = res_dept_emp.emp_no
 WHERE res_emp.hire_date > '19920000'
-AND res_dept.dept_name = "Research"
+AND res_dept.dept_name = 'Research'
 
 ```
 
 ## 8. Report:
 **How many employees do we have in the Finance Department, who are working for us since 1985 until now and who have salaries higher than EUR 75 000,00 - who are they?**
+**NICHT ERFOLGREICH GETESTE:**
 ```
+SELECT res_emp.emp_no, res_emp.first_name, res_emp.last_name, res_dept.dept_name, res_dept_emp.dept_no, res_emp_sal.salary
+FROM departments
+AS res_dept
+INNER JOIN dept_emp AS res_dept_emp
+ON res_dept.dept_no = res_dept_emp.dept_no
+INNER JOIN employees AS res_emp
+ON res_emp.emp_no = res_dept_emp.emp_no
+INNER JOIN salaries AS res_emp_sal
+ON res_emp_sal.salary > 75000
+WHERE res_emp.hire_date > '19850000'
+AND res_dept.dept_name = 'Finance'
 
 ```
 
