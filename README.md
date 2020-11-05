@@ -10,7 +10,9 @@ FROM employees;
 ### 2. Report:
 **How many employees with the first name "Mark" do we have in our company?**
 ```
-
+SELECT COUNT(*) as "First Name Mark"
+FROM employees
+WHERE first_name = 'Mark'
 ```
 
 ### 3. Report:
@@ -63,4 +65,6 @@ FROM employees;
 
 ## Bonus query:
 **Create a query that will join all tables and show all data from all tables.**
+```
 
+```
