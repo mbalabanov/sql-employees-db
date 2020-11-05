@@ -26,13 +26,17 @@ AND last_name LIKE 'A%'
 ### 4. Report:
 **How many employees do we have that are working for us since 1985 and who are they?**
 ```
-
+SELECT first_name, last_name
+FROM `employees`
+WHERE hire_date > '1985'
 ```
 
 ### 5. Report:
 **How many employees got hired from 1990 until 1997 and who are they?**
 ```
-
+SELECT first_name, last_name
+FROM `employees`
+WHERE hire_date > '19900000' AND hire_date < '19970000'
 ```
 
 ## 6. Report:
