@@ -141,7 +141,18 @@ WHERE sal.to_date = '9999-01-01'
 ## 10. Report:
 **We need a table with managers, who are working for us at this moment: first and last name, date of birth, gender, hire_date, title, department name and salary.**
 ```
-
+SELECT DISTINCT emp.first_name, emp.last_name, emp.birth_date, emp.gender, emp.hire_date, tit.title, sal.salary, depts.dept_name
+FROM employees AS emp
+INNER JOIN salaries AS sal
+ON sal.emp_no = emp.emp_no
+INNER JOIN titles AS tit
+ON tit.emp_no = emp.emp_no
+INNER JOIN dept_manager AS depman
+ON depman.emp_no = emp.emp_no
+INNER JOIN departments AS depts
+ON depts.dept_no = depman.dept_no
+WHERE sal.to_date = '9999-01-01'
+AND tit.title = 'Manager'
 ```
 
 ## Bonus query:
